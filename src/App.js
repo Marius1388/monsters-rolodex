@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {CardList} from './components/card-list/card-list'
+// import {Card} from './components/card/card'
 
 import './App.css';
 
@@ -8,7 +9,8 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      monsters: []
+      monsters: [],
+      searchField:''
     }
   }
 
@@ -22,9 +24,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <CardList monsters={this.state.monsters}>
-          
-        </CardList>
+        <input 
+          type='search' 
+          placeholder='Search monsters' 
+          onChange={e => this.setState({searchField:e.target.value})}
+            />
+        <CardList monsters={this.state.monsters}/>
       </div>
     );
   }
